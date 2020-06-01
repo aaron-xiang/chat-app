@@ -7,6 +7,7 @@ import com.example.chatapp.model.UserRegistrationForm;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 public class UserController {
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     public User loginUser(@RequestBody UserLoginForm userLoginForm) {
