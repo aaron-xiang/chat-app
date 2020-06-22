@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel src/registration.html",
+    "dev": "parcel src/index.html",
+    "watch": "parcel watch src/**/*.*",
     "build": "parcel build src/*.html"
   },
   "keywords": [],
@@ -15,7 +16,9 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
   }
 }
