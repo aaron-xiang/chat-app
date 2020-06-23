@@ -2,14 +2,14 @@ package com.example.chatapp.model;
 
 public class UserRegistrationForm extends UserLoginForm {
     private String firstName;
-    private String LastName;
+    private String lastName;
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getFirstName() {
@@ -17,6 +17,7 @@ public class UserRegistrationForm extends UserLoginForm {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
+
 }
