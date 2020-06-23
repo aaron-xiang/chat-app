@@ -37,9 +37,9 @@ class Registration extends Component {
     onSubmit = (event) => {
         event.preventDefault();
         console.log("registering");
-        // console.log(this.state);
+        console.log(this.state);
         axios
-          .post("http://localhost:8080/user/registration", this.state)
+          .post("http://localhost:8080/user/register", this.state)
           .then((response) => {
             console.log("registered user:", response.data);
           });
@@ -51,7 +51,7 @@ class Registration extends Component {
         const fieldValue = event.target.value;
         const newState = {};
         newState[fieldName] = fieldValue;
-        // console.log(newState);
+        console.log(newState);
         this.setState({ ...this.state, ...newState });
     };
 
@@ -95,7 +95,7 @@ class Registration extends Component {
                     onChange={this.onChange}
                     type="password"
                 />
-                <SubmitButton className="btn btn-primary">Register</SubmitButton>
+                <SubmitButton className="btn btn-primary" onClick={this.onSubmits}>Register</SubmitButton>
                 <SubmitButton className="btn btn-default" onClick={this.onClickLogin}>Login</SubmitButton>
             </form>
         </Container>
