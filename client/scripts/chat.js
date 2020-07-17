@@ -30,4 +30,4 @@ console.log('after send');
 setTimeout(() => { 
   console.log('disconnect');
   stompClient.disconnect();
-}, 600000);
+}, 5000);

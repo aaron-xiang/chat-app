@@ -114,19 +114,22 @@ export default class Chat extends Component {
     });
   };
 
+  handleIncomingMessage = (message) => {
+    let { conversationHistory } = this.state;
+    console.log('####', message);
+    conversationHistory.push(message);
+    this.setState({ conversationHistory });
+  }
+
   componentDidMount() {
     const conversationHistory = getConversationHistory();
     const user = getCurrentUser();
     this.setState({ conversationHistory, user });
     this.scrollToBottom();
+    const that = this;
     this.state.stompClient.connect({}, (frame) => {
       console.log('Connected:\n', frame);
-      stompClient.subscribe('/topic/messages', (message) => {
-        let { conversationHistory } = this.state;
-        console.log('####', message);
-        conversationHistory.push(message);
-        this.setState({ conversationHistory });
-      })
+      stompClient.subscribe('/topic/messages', that.handleIncomingMessage)
     });
     console.log("did mount");
   }
