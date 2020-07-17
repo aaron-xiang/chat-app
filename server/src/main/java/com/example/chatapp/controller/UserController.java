@@ -33,6 +33,12 @@ public class UserController {
         return u;
     }
 
+    @RequestMapping(value = "/user/{token}", method = RequestMethod.GET)
+    public User getCurrentUser(@PathVariable String token) {
+        // TODO: get the current logged in user with a token
+        return null;
+    }
+
     @RequestMapping(value = "/chat/home", method = RequestMethod.GET)
     public String index(@RequestHeader("x-auth-token") String token) {
         if (ChatApp.tokens.contains(token)) {
