@@ -43,6 +43,8 @@ class Registration extends Component {
           .then((response) => {
             console.log("registered user:", response.data);
           });
+        const { switchView } = this.props;
+        switchView("login");
     };
 
     onChange = (event) => {

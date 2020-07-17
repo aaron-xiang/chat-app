@@ -5,7 +5,7 @@ import Chat from '../components/chat';
 
 class Home extends Component {
     state = {
-        status: "login", // "login", "registration", or "authorized"
+        status: "authorized", // "login", "registration", or "authorized"
     }
 
     switchView = (status) => {
@@ -18,7 +18,7 @@ class Home extends Component {
             case "registration":
                 return <Registration switchView={this.switchView} />;
             case "authorized":
-                return <Chat />
+                return <Chat switchView={this.switchView} />
             default:
                 return <Login switchView={this.switchView} />;
         }
