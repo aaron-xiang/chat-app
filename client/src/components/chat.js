@@ -117,17 +117,19 @@ export default class Chat extends Component {
   handleIncomingMessage = (message) => {
     let { conversationHistory } = this.state;
     console.log('####', message);
-    conversationHistory.push(message);
+    const conversation = JSON.parse(message.body);
+    conversationHistory.push(conversation);
     this.setState({ conversationHistory });
   }
 
   componentDidMount() {
+    const { stompClient } = this.state;
     const conversationHistory = getConversationHistory();
     const user = getCurrentUser();
     this.setState({ conversationHistory, user });
     this.scrollToBottom();
     const that = this;
-    this.state.stompClient.connect({}, (frame) => {
+    stompClient.connect({}, (frame) => {
       console.log('Connected:\n', frame);
       stompClient.subscribe('/topic/messages', that.handleIncomingMessage)
     });
